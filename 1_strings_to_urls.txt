@@ -1,9 +1,42 @@
 Question #1: Turning Strings to URLs
-URLs cannot have spaces. Instead, all spaces in a string are replaced with %20. Write an algorithm that replaces all spaces in a string with %20.
 
-You may not use the replace() method or regular expressions to solve this problem. Solve the problem with and without recursion.
+URLs cannot have spaces. 
+Instead, all spaces in a string are replaced with %20. 
+Write an algorithm that replaces all spaces in a string with %20.
+
+You may not use the replace() method or regular expressions to solve this problem. 
+Solve the problem with and without recursion.
 
 Example
 Input: "Jasmine Ann Jones"
 
 Output: "Jasmine%20Ann%20Jones"
+
+Questions: 
+- Should I expect all inputs to be strings? 
+- The output is a string with spaces between words replaced by '%20'
+- do we need to account for inputs involving integers?
+- the output should not have any spaces?
+- I'm assuming since the output has capitialization we don't need to account to coverting the output to lowercase??
+
+* Possible solution without recursion.
+
+const string = "Jasmine Ann Jones";
+
+function url(str) {            // create function 'url' and passing in 'str' as the argument.
+  let newArray = str.split(" ");     // seperating string into an array using .split on spaces
+  let newStr = str.join("$20");      // rejoining the array into new string a replacing the spaces using .join.
+  return newStr;              // returns new string
+}
+
+const stringConvert = url(string); // returns output 'Jasmine%20Ann%20Jones'
+
+* Refactored with converting to lowercase and chained methods.
+
+function url(str) {
+  let newStr = str.toLowerCase().split(" ").join("%20");
+  return newStr;
+}
+
+console.log(stringConvert);  // returns output 'jasmine$20ann%20jones'
+
