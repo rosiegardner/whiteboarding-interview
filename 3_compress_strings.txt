@@ -1,6 +1,57 @@
-Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
+Question #3: Compressing Strings
+
+Write an algorithm that takes a string with repeated characters and compresses them,
+using a number to show how many times the repeated character has been compressed. 
+
+For instance, aaa would be written as 3a. 
+
+Solve the problem with and without recursion.
 
 Example
 Input: "aaabccdddda"
 
 Output: "3ab2c4da"
+
+Questions:
+- Can I expect the input always be a string?
+
+Possible Edge Cases
+- What happens if there's multiple spaces and integers in the string?
+  ex: "333 ee33e 4444 4 ddd"
+- Empty string?
+
+
+Solution without recursion
+
+const count = "aaabccdddda";
+
+function strCompress(str) {         // create a function 'strCompress' passing 'str' as the argument
+  let compressStr = "";           // create a new string, which will hold compressed version of the orginial string.
+  let strArray = str.split("");              // Split the string up into an array so we can iterate through it.
+  for (let i = 0; i < strArray.length; i++) {        // create a for loop to keep track of each iteration
+    let count = 1;                                  // setting the inital value of count to 1 for current consecutive letters.
+    let letter = strArray[i];                      // and the actual letter 
+    while (i < strArray.length - 1 && strArray[i] === strArray[i + 1]) {      // create a while loop compare letters with two conditions.
+      count++                                                             // if 'i' is less than strArray length & if the current 'i' is equal to the next 'i'. 
+      i++                                                                // increase the count & index position when conditions are met.
+    }
+    if (count === 1){                  // add the letter and number 
+      compressStr += letter           // to our compressed string.
+    } else {
+      compressStr += letter + count
+    }
+  }
+  return compressStr;  // return our compressed string
+}
+
+console.log(strCompress(count));
+
+
+
+
+
+
+
+
+
+resources : https://www.youtube.com/watch?v=6tjjxzZU0J8
