@@ -44,3 +44,11 @@ const arr1 ['cat', 'dog', 'mouse'];
 arr1.indexOf('dog') === 1
 arr1.indexOf('snake') === -1
 
+
+* Solution with filter()
+
+function removeDupes(arr) {
+  return arr.filter((item, index) => arr.indexOf(item) === index);
+}
+console.log(removeDupes(array));
+
