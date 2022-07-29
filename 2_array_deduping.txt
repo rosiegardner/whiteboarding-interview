@@ -1,7 +1,46 @@
-Array Deduping
-Write an algorithm that removes duplicates from an array. Do not use a function like filter() to solve this. Once you have solved the problem, demonstrate how it can be solved with filter(). Solve the problem with and without recursion.
+Question #2: Array Deduping
+
+Write an algorithm that removes duplicates from an array. 
+Do not use a function like filter() to solve this. 
+Once you have solved the problem, demonstrate how it can be solved with filter(). 
+
+Solve the problem with and without recursion.
 
 Example
 Input: [7, 9, "hi", 12, "hi" 7, 53]
 
 Output: [7, 9, "hi", 12, 53]
+
+Questions: 
+- create a function that removes duplicates from an array?
+- accounting for strings and integers from the input?
+- is the argument always going to get array
+- will i need to expect anything unexpected? ie booleans? strings ? integers?
+- what will I need to handle?
+
+Edge cases: 
+-  Possibilty of an Empty Array?
+
+
+
+Solution without Filter()
+
+const array = [7, 9, "hi", 12, "hi" 7, 53]; // declaring a const variable
+
+function removeDupes(arr) {     // create a function 'removeDupes', passing 'arr' as the argument
+  let newArray = [];            // create a new array for deduped elements;
+  for (let i = 0; i < arr.length; i++) {    // create a for loop to iterate over each element of the array
+    if (newArray.indexOf(arr[i] === -1) {   // to check a see what hasn't been added 
+      newArray.push(arr[i]);                // to new array
+    }
+  }
+  return newArray;   // returns newArray Dedupped
+}
+
+const dedupedArray = removeDupes(array);  
+
+* ex of using indexOf
+const arr1 ['cat', 'dog', 'mouse'];
+arr1.indexOf('dog') === 1
+arr1.indexOf('snake') === -1
+
