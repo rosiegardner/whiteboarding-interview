@@ -46,12 +46,23 @@ function strCompress(str) {         // create a function 'strCompress' passing '
 
 console.log(strCompress(count));
 
+Possible solution with recursion:
+
+- create a basecase to check if the string is empty
+- use substring() method. - see README.md for more details.
+
+function recursionStrComp(str) {   // create a function 'recursionStrComp', passing 'str' as the argument
+  if(str.length === 0)   // if and when the string is empty, it will return an empty string.
+  return str;        // return string
+  let counter = 1;   // set variable 'counter' to the default value of 1
+  for (let i = 0; str[i] === str[i + 1]; i++) counter++;    // create for loop to iterate and compare both strings, if dup - increment counter by 1 
+  if (counter > 1) {
+    return counter.toString() + str[0] + recursionStrComp(str.substring(counter));  // return counter converted to 'str' - adding value to index of 0. Call function, passing in counter to 'str' using .substring()
+  } else {
+    return str[0] + recursionStrComp(str.substring(1));  // returns 'str' starting at index of 0, adding value of function that takes 'str' as an argument using .substring() => creating a shallow copy of 'str' that has an endpoint of (1) - simply telling it to look at the first character of the string.
+  }
+}
 
 
 
 
-
-
-
-
-resources : https://www.youtube.com/watch?v=6tjjxzZU0J8
