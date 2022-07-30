@@ -58,7 +58,7 @@ function removeDupes(arr) {
 
 
 
-Possibly solution with recurion.
+Possible solution with recurion.
 
 
 function removeDupes(arr) {  // create a function 'removeDupes', passing 'arr' as the argument.
