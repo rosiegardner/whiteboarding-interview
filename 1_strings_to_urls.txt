@@ -19,6 +19,9 @@ Questions:
 - the output should not have any spaces?
 - I'm assuming since the output has capitialization we don't need to account to coverting the output to lowercase??
 
+Possible Edge Case:
+- Empty Strings?
+
 * Possible solution without recursion.
 
 const string = "Jasmine Ann Jones";
@@ -39,4 +42,20 @@ function url(str) {
 }
 
 console.log(stringConvert);  // returns output 'jasmine$20ann%20jones'
+
+Possible Solution with Recursion:
+
+- create a basecase to check if the string is empty.
+- use substring() method. - see README.md for more details.
+- recursiveUrl(str.substring(1)); => substring(1) is saying to 'look at the first character", looking at 1 character at a time - until the string becomes empty.
+
+function recursiveUrl(str) {    /// create function 'recursiveUrl' passing 'str' as argument.
+  if (str === "") {   // if and when the string is empty, it will return string.
+    return str;
+  } else if (str[0] === " ") {   // if index position [0] is empty.
+    return "%20" + recursiveUrl(str.substring(1)); // replace with URL encode '%20' - substring is creating a shallow copy of 'str' and has an endpoint of (1), telling it to look at the next character in the string.
+  } else {
+    return str[0] + recursiveUrl(str.substring(1)); // once finished iterating over each character, return str with spaces replaced with URL encode '%20'.
+  }
+};
 
