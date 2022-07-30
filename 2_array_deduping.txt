@@ -47,8 +47,31 @@ arr1.indexOf('snake') === -1
 
 * Solution with filter()
 
-function removeDupes(arr) {
-  return arr.filter((item, index) => arr.indexOf(item) === index);
+- implicit return:
+  
+function removeDupes(arr) { 
+  return arr.filter((element, index) => arr.indexOf(element) === index);
 }
-console.log(removeDupes(array));
+- Using filter() to create a new array of elements that pass the condition we provide.
+ It will include only those elements for which true is returned. Removing dupilcates from the array by
+ adjusting our condition.
+
+
+
+Possibly solution with recurion.
+
+
+function removeDupes(arr) {  // create a function 'removeDupes', passing 'arr' as the argument.
+  if (arr.length === 0) {     // if 'arr' length is equal to = '0' or is empty. stop the recursive loop
+    return arr.concat([]);    //  and return array using .concat to merge all arrays into one array.
+  }
+  const newArray = arr.slice(0, -1);  // create new array with an offset of -1 to remove last element each time '.slice()'
+  if (newArray.includes(arr[arr.length - 1])) {  // compare arrays to check what hasn't been added to the new array.
+    return removeDupes(newArray)             // if multiple instances of a single element are found, return and call the function again
+  } else {
+    return removeDupes(newArray).concat(arr[arr.length - 1]) // if no multiple instances of a single element is found, move on to check next element of index.
+  }
+}
+  
+
 
