@@ -1,5 +1,9 @@
 Question #4: Checking for Uniqueness
-Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
+
+Write an algorithm that determines whether all the elements in a string are unique. 
+You may not convert the string into an array or use array methods to solve this problem. 
+
+The algorithm should return a boolean.
 
 Example
 Input: "hello"
@@ -9,3 +13,14 @@ Output: false
 Input: "copyright"
 
 Output: true
+
+const str = "hello";
+const str = "copyright";
+
+function isUnique(str) {
+  return new Set(str).size == str.length;
+}
+
+console.log(isUnique('hello'));  // false
+console.log(isUnique('copyright')); //true
+
