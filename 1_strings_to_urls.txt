@@ -13,11 +13,14 @@ Input: "Jasmine Ann Jones"
 Output: "Jasmine%20Ann%20Jones"
 
 Questions: 
+- What coding language do you prefer I use? Is JavaScript acceptable?
 - Should I expect all inputs to be strings? 
 - The output is a string with spaces between words replaced by the URL encode - '%20'
+- I cannot use the .replace() method, correct?
 - do we need to account for inputs involving integers?
 - the output should not have any spaces?
 - I'm assuming since the output has capitialization we don't need to account to coverting the output to lowercase??
+- Should this be in recursion as well?
 
 Possible Edge Case:
 - Empty Strings?
@@ -35,7 +38,7 @@ function url(str) {            // create function 'url' and passing in 'str' as 
 
 const stringConvert = url(string); // returns output 'Jasmine%20Ann%20Jones'
 
-* Refactored with converting to lowercase and chained methods.
+* Refactored with converting to lowercase with chained methods.
 
 function url(str) {
   let newStr = str.toLowerCase().split(" ").join("%20");
