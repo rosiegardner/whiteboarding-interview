@@ -54,7 +54,7 @@
 #### Sorting Arrays using Selection Sort
 * `https://en.wikipedia.org/wiki/Selection_sort`
 * `https://stackabuse.com/selection-sort-in-javascript/`
-* `https://www.w3resource.com/c-programming-exercises/searching-and-sorting/c-search-and-sorting-exercise-2.php
+* `https://www.w3resource.com/c-programming-exercises/searching-and-sorting/c-search-and-sorting-exercise-2.php`
 * `https://dev.to/seanwelshbrown/implementing-a-selection-sort-algorithm-in-javascript-9of`
 
 ## Known Bugs
