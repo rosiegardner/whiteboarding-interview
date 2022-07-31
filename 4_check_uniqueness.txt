@@ -17,10 +17,29 @@ Output: true
 const str = "hello";
 const str = "copyright";
 
-function isUnique(str) {
-  return new Set(str).size == str.length;
+using a nested loop. with I = Index, and J = 2nd index.
+
+function isUnique(str) {                     // create function 'isUnique', passing in 'str' as the argument
+  for(let i = 0; i < str.length; i++) {         // create for loop to iterate over each element of the string and increment the index by 1
+    for(let j = i + 1; j < str.length; j++) {   // create for loop to to iterate over each element of the second string and increment 'j' by 1
+      if (str[i] == str[j]) {                   // if duplicate characters are encountered 
+        return false;                           // return false
+      }
+    }
+  }
+  return true;           // if no duplicate characters are encountered, return true;
+
+
+Refactored solution using Set object in ES6:
+A set is a collection of items which are unique meaning no element can be repeated
+Set in ES6 are ordered: elements of the set can be iterated in the insertion order.
+Set can store any types of values whether primitive or objects.
+
+function isUnique(str) {   // create function 'isUnique', passing in 'str' as the argument.
+  return new Set(str).size == str.length;   // return a new Set with all characters and compare its size to the strings length.
 }
 
 console.log(isUnique('hello'));  // false
-console.log(isUnique('copyright')); //true
+console.log(isUnique('copyright')); // true
+
 
