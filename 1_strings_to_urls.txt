@@ -21,6 +21,7 @@ Questions:
 
 Possible Edge Case:
 - Empty Strings?
+- lowercase?
 
 * Possible solution without recursion.
 
