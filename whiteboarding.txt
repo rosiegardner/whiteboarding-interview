@@ -1,0 +1,64 @@
+Question #1: Turning Strings to URLs
+
+URLs cannot have spaces. 
+Instead, all spaces in a string are replaced with %20. 
+Write an algorithm that replaces all spaces in a string with %20.
+
+You may not use the replace() method or regular expressions to solve this problem. 
+Solve the problem with and without recursion.
+
+Example
+Input: "Jasmine Ann Jones"
+
+Output: "Jasmine%20Ann%20Jones"
+
+Questions: 
+- What coding language do you prefer I use? Is JavaScript acceptable?
+- Should I expect all inputs to be strings? 
+- The output is a string with spaces between words replaced by the URL encode - '%20'
+- I cannot use the .replace() method, correct?
+- do we need to account for inputs involving integers?
+- the output should not have any spaces?
+- I'm assuming since the output has capitialization we don't need to account to coverting the output to lowercase??
+- Should this be in recursion as well?
+
+Possible Edge Case:
+- Empty Strings?
+- lowercase?
+
+* Possible solution without recursion.
+
+const string = "Jasmine Ann Jones";
+
+function url(str) {            // create function 'url' and passing in 'str' as the argument.
+  let newArray = str.split(" ");     // defining a new array=seperating string into an array using .split on spaces
+  let newStr = str.join("$20");      // defining a new string rejoining the array into new string a replacing the spaces using .join.
+  return newStr;              // returns new string
+}
+
+const stringConvert = url(string); // returns output 'Jasmine%20Ann%20Jones'
+
+* Refactored with converting to lowercase with chained methods.
+
+function url(str) {
+  let newStr = str.toLowerCase().split(" ").join("%20");
+  return newStr;
+}
+
+console.log(stringConvert);  // returns output 'jasmine$20ann%20jones'
+
+Possible Solution with Recursion:
+
+- create a basecase to check if the string is empty.
+- use substring() method. - see README.md for more details.
+- recursiveUrl(str.substring(1)); => substring(1) is saying to 'look at the first character", looking at 1 character at a time - until the string becomes empty.
+
+function recursiveUrl(str) {    /// create function 'recursiveUrl' passing 'str' as argument.
+  if (str === "") {   // if and when the string is empty, it will return string.
+    return str;
+  } else if (str[0] === " ") {   // if index position [0] is empty.
+    return "%20" + recursiveUrl(str.substring(1)); // replace with URL encode '%20' - substring is creating a shallow copy of 'str' and has an endpoint of (1), telling it to look at the next character in the string.
+  } else {
+    return str[0] + recursiveUrl(str.substring(1)); // once finished iterating over each character, return str with spaces replaced with URL encode '%20'.
+  }
+};
